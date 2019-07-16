@@ -34,8 +34,9 @@ handleSubmit = () =>{
       },
       body: JSON.stringify(this.state)
     }
-    fetch('/api/addFlight', options);
-    console.log(this.state);
+    fetch('/api/addFlight', options)
+    .then(data => data.json);
+   
 
 
 
