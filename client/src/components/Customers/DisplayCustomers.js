@@ -17,12 +17,9 @@ class DisplayCustomers extends Component {
         const options = {
             method: 'GET', 
         };
-        
-
-fetch("/api/getCustomers", options)
-.then(res => res.json)
-.then(customerList => (this.setState({customerList})), console.log(this.customerList))
     }
+
+
     
     render() {
         return (

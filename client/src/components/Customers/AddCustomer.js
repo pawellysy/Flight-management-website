@@ -26,6 +26,18 @@ class AddCustomer extends Component {
     
 
     handleSubmit = () => {
+        this.setState({
+            customers: [],
+            FirstName: "",
+            LastName: "",
+            gender: "",
+            Country:"",
+            Notes:"",
+            DateOfBirth: "2017-05-24T10:30",
+            flights: []
+
+
+        })
         const options = {
             method: 'POST',
             

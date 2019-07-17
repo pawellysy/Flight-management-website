@@ -1,26 +1,43 @@
 const express = require('express');
+const Datastore = require('nedb');
 
 const app = express();
 
-var customersList = [];
 app.use(express.json({limit: 'lmb'}));
-app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
-  console.log('fetching')
 
-  res.json(customers);
-});
+const database = new Datastore ('database.db');
+database.loadDatabase();
+
 app.post('/api/addFlight', (request, response ) => {
   const data =request.body;
+  database.insert(data)
+  console.log(database)
   response.json({
     status:'success',
     content:data
 })
 });
+
+app.post('/api/addCustomer', (request, response ) => {
+
+  const data = request.body;
+  database['customers'].insert(data);
+  console.log(database);
+  response.json({
+    status: 'success',
+    content: CustomerList
+  })
+
+  app.get('/api/getCustomers', (request, response) =>
+  {
+    console.log("i got a request")
+    response = {chuj: "xD"}
+    
+  })
+
+
+  
+})
 
 
 

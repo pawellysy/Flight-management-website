@@ -35,7 +35,7 @@ handleSubmit = () =>{
       body: JSON.stringify(this.state)
     }
     fetch('/api/addFlight', options)
-    .then(data => data.json);
+      .then(FlightsList => {console.log(FlightsList)});
    
 
 
