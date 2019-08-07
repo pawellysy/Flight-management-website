@@ -3,41 +3,61 @@ const Datastore = require('nedb');
 
 const app = express();
 
-app.use(express.json({limit: 'lmb'}));
 
-const database = new Datastore ('database.db');
-database.loadDatabase();
+
+app.use(express.json({limit: '1mb'}));
+
+const Flights = new Datastore ('Flights.db');
+Flights.loadDatabase();
+const Passagers = new Datastore('Passagers.db')
+Passagers.loadDatabase();
+
+
+
 
 app.post('/api/addFlight', (request, response ) => {
   const data =request.body;
-  database.insert(data)
-  console.log(database)
+  Flights.insert(data)
   response.json({
-    status:'success',
-    content:data
-})
+
+    data : data
+  }
+    
+)
 });
 
-app.post('/api/addCustomer', (request, response ) => {
 
+
+app.post('/api/addCustomer', (request, response) => {
   const data = request.body;
-  database['customers'].insert(data);
-  console.log(database);
+  Passagers.insert(data)
   response.json({
-    status: 'success',
-    content: CustomerList
+    data:data
   })
+})
+
 
   app.get('/api/getCustomers', (request, response) =>
   {
-    console.log("i got a request")
-    response = {chuj: "xD"}
-    
+    Passagers.find({}, (err, data) => {
+     
+      response.json(data)
+    })
+
+
+  })
+
+  app.get('/api/getFlights', (request, response) =>{
+      Passagers.find({}, (err, data) => {
+        response.json(data)
+      })
   })
 
 
   
-})
+
+  
+
 
 
 

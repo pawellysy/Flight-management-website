@@ -9,13 +9,12 @@ class AddCustomer extends Component {
     constructor(props){
         super(props);
         this.state = {
-            customers: [],
             FirstName: "",
             LastName: "",
             gender: "",
             Country:"",
             Notes:"",
-            DateOfBirth: "2017-05-24T10:30",
+            DateOfBirth: "2017-05-24",
             flights: []
 
 
@@ -26,27 +25,34 @@ class AddCustomer extends Component {
     
 
     handleSubmit = () => {
-        this.setState({
-            customers: [],
-            FirstName: "",
-            LastName: "",
-            gender: "",
-            Country:"",
-            Notes:"",
-            DateOfBirth: "2017-05-24T10:30",
-            flights: []
+       
+        if (this.state.FirstName !== "" && this.state.LastName !== ""
+        && this.state.Country !== "" && this.state.gender !== ""){
 
-
-        })
-        const options = {
-            method: 'POST',
-            
-        };
-        fetch('/api/addCustomer', options);
-
-
-        console.log("submit")
-        console.log(this.state);
+            const options = {
+                method: "POST",
+                headers:{
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(this.state)
+            }
+            fetch('/api/addCustomer', options).then(Response => console.log(Response));
+            this.setState({
+                FirstName: "",
+                LastName: "",
+                gender: "",
+                Country:"",
+                Notes:"",
+                DateOfBirth: "2017-05-24",
+                flights: []
+    
+    
+            })
+        }
+        else{
+            console.log("you need to specify All Fields")
+        }
+        
     }
 
     handleChange = name => event => {
@@ -115,7 +121,7 @@ class AddCustomer extends Component {
                 <TextField
                     id="Date-of-birth"
                     label="Date of birth"
-                    type="datetime-local"
+                    type="date"
     
                     value={this.state.DateOfBirth}
                         onChange={this.handleChange('DateOfBirth')}

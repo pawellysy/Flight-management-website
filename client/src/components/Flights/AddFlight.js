@@ -26,6 +26,16 @@ class AddFlight extends Component {
     
 
 handleSubmit = () =>{
+  this.setState({
+    
+    Departure : "2018-05-24T10:30",
+    Arrival : "2018-05-24T10:30",
+    Cost : "",
+    NbPassagers: 0,
+    ListOfPassagers: []
+
+  })
+
     console.log("submit");
     const options = {
       method: "POST",
