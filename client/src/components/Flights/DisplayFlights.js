@@ -22,7 +22,7 @@ import { Button } from '@material-ui/core';
         componentWillMount(){
             fetch('/api/getFlights')
             .then(data => data.json())
-            .then(flightsList => this.setState({flightsList}))
+            .then(flightsList => this.setState({...this.state.flightsList, flightsList}))
             .catch(err => console.log(err));
             
         }

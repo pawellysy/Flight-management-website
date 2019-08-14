@@ -3,62 +3,49 @@ const Datastore = require('nedb');
 
 const app = express();
 
+app.use(express.json({ limit: '1mb' }));
+
+const Database = new Datastore('Database.db');
+Database.loadDatabase();
 
 
-app.use(express.json({limit: '1mb'}));
-
-const Flights = new Datastore ('Flights.db');
-Flights.loadDatabase();
-const Passagers = new Datastore('Passagers.db')
-Passagers.loadDatabase();
-
-
-
-
-app.post('/api/addFlight', (request, response ) => {
-  const data =request.body;
-  Flights.insert(data)
+app.post('/api/addFlight', (request, response) => {
+  let data = request.body;
+  data['Type'] = "Flight"
+  Database.insert(data)
   response.json({
 
-    data : data
+    data: data
   }
-    
-)
+  )
 });
 
 
 
 app.post('/api/addCustomer', (request, response) => {
-  const data = request.body;
-  Passagers.insert(data)
+  let data = request.body;
+  data['Type'] = "Customer"
+  Database.insert(data)
   response.json({
-    data:data
+    data: data
   })
 })
 
 
-  app.get('/api/getCustomers', (request, response) =>
-  {
-    Passagers.find({}, (err, data) => {
-     
-      response.json(data)
-    })
+app.get('/api/getCustomers', (request, response) => {
+  Database.find({Type: "Customer"}, (err, data) => {
 
-
-  })
-
-  app.get('/api/getFlights', (request, response) =>{
-      Passagers.find({}, (err, data) => {
-        response.json(data)
-      })
+    response.json(data)
   })
 
 
-  
+})
 
-  
-
-
+app.get('/api/getFlights', (request, response) => {
+  Database.find({Type: "Flight"}, (err, data) => {
+    response.json(data)
+  })
+})
 
 
 

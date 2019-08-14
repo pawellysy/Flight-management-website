@@ -1,7 +1,3 @@
-{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"12","NbPassagers":"2314","ListOfPassagers":[],"_id":"Cii8MRn0vWyMVjza"}
-{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"","NbPassagers":0,"ListOfPassagers":[],"_id":"F4J1jfkiLqpXmH8n"}
-{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"","NbPassagers":0,"ListOfPassagers":[],"_id":"MBEQGWMz17neA6BF"}
-{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"","NbPassagers":0,"ListOfPassagers":[],"_id":"WjwOejh6WYyhtG4P"}
-{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"","NbPassagers":0,"ListOfPassagers":[],"_id":"XMdEZYFcoKBfLsly"}
-{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"12","NbPassagers":"2314","ListOfPassagers":[],"_id":"XNgUY2ZcK781iznL"}
-{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"","NbPassagers":0,"ListOfPassagers":[],"_id":"sMRc1tXMUDfVPe3r"}
+{"FirstName":"Paweł","LastName":"Lysy","gender":"Paweł Lysy","Country":"Polska","Notes":"","DateOfBirth":"2017-05-24","Type":"Customer","_id":"8RzTLkWupcFvv79a"}
+{"Departure":"2018-05-24T10:30","Arrival":"2018-05-24T10:30","Cost":"12","NbPassagers":"124","ListOfPassagers":[],"Type":"Flight","_id":"Ry1TXulPvgtk76Wx"}
+{"FirstName":"Michaelus","LastName":"Jordanus","gender":"Michaelus Jordanus","Country":"Polska","Notes":"","DateOfBirth":"2017-05-24","Type":"Customer","_id":"yM6OF9wmDJ8yTr42"}
