@@ -55,7 +55,7 @@ class AddFlight extends Component {
 
   render() {
     return (
-      <div>
+      <div className="adding-formule">
         <h1>
           Add Flight
                 </h1>

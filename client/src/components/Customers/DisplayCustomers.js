@@ -22,7 +22,6 @@ class DisplayCustomers extends Component {
   componentDidMount() {
 
 
-    console.log('fetching');
     fetch('/api/getCustomers').then(response => response.json())
       .then(customers => this.setState({ ...this.state.customers, customers }))
 
@@ -32,7 +31,6 @@ class DisplayCustomers extends Component {
 
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <p>

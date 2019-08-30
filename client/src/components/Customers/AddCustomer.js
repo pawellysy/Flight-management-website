@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 
 
@@ -41,7 +45,7 @@ class AddCustomer extends Component {
             this.setState({
                 FirstName: "",
                 LastName: "",
-                gender: "",
+                gender: "Male",
                 Country: "",
                 Notes: "",
                 DateOfBirth: "2017-05-24",
@@ -62,7 +66,7 @@ class AddCustomer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="adding-formule">
                 <h1>Add Customer</h1>
                 {/* <TextField
         id="standard-name"
@@ -78,6 +82,7 @@ class AddCustomer extends Component {
                         id="First-Name"
                         label="First Name"
                         margin="normal"
+                        className="filler"
                         value={this.state.FirstName}
                         onChange={this.handleChange('FirstName')}
                     />
@@ -85,6 +90,7 @@ class AddCustomer extends Component {
                     <TextField
                         id="Last-Name"
                         label="Last Name"
+                        className="filler"
                         margin="normal"
                         value={this.state.LastName}
                         onChange={this.handleChange('LastName')}
@@ -92,12 +98,26 @@ class AddCustomer extends Component {
                 </div>
                 <div>
 
-                    <select>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
+                    <div>
+
+                    <FormControl>
+                        <InputLabel htmlFor="gender">Gender</InputLabel>
+                        <Select
+                            value={this.state.gender}
+                            onChange={this.handleChange}
+                            inputProps={{
+                                name: 'gender',
+                                id: 'gender-simple',
+                            }}
+                        >
+                            <MenuItem value={"Male"}>Male</MenuItem>
+                            <MenuItem value={"Female"}>Female</MenuItem>
+                            <MenuItem value={"other"}>Other</MenuItem>
+                        </Select>
+                    </FormControl>
+                    </div>
                     <TextField
+                        className="filler"
                         id="Country"
                         label="Country"
                         margin="normal"
@@ -108,6 +128,7 @@ class AddCustomer extends Component {
                 <div>
 
                     <TextField
+                        className="filler"
                         id="Notes"
                         label="Notes"
                         margin="normal"
@@ -121,7 +142,7 @@ class AddCustomer extends Component {
                         id="Date-of-birth"
                         label="Date of birth"
                         type="date"
-
+                        className="filler"
                         value={this.state.DateOfBirth}
                         onChange={this.handleChange('DateOfBirth')}
                         InputLabelProps={{
