@@ -4,8 +4,7 @@
 
 ### Redux Version
 This version does not include Redux
-[Click Here For Redux Version](https://github.com/bradtraversy/react_redux_express_starter) 
-
+\
 ## Quick Start
 
 ``` bash
@@ -31,8 +30,7 @@ npm run client
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
+Paweł Lysy
 
 ### Version
 
