@@ -1,9 +1,4 @@
-# React Express Starter Pack
 
-> Create full stack apps with React and Express. Run your client and server with a single command. 
-
-### Redux Version
-This version does not include Redux
 \
 ## Quick Start
 
@@ -30,7 +25,7 @@ npm run client
 
 ### Author
 
-Paweł Lysy
+Paweł Lysy, based on react express starter by https://github.com/bradtraversy/react_express_starter
 
 ### Version
 
