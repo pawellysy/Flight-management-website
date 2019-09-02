@@ -65,17 +65,11 @@ class AddCustomer extends Component {
     };
 
     render() {
+        console.log(this.state)
         return (
             <div className="adding-formule">
                 <h1>Add Customer</h1>
-                {/* <TextField
-        id="standard-name"
-        label="Name"
-        className={classes.textField}
-        value={values.name}
-        onChange={handleChange('name')}
-        margin="normal"
-      /> */}
+               
                 <div>
 
                     <TextField
@@ -99,7 +93,7 @@ class AddCustomer extends Component {
                 <div>
 
                     <div>
-
+                  
                     <FormControl>
                         <InputLabel htmlFor="gender">Gender</InputLabel>
                         <Select

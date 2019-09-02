@@ -4,7 +4,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Options from './Options'
+import Options from '../Options'
 
 class DisplayCustomers extends Component {
 
@@ -36,8 +36,8 @@ class DisplayCustomers extends Component {
         <p>
           customers List
                 </p>
-        <Table>
-          <TableHead>
+        <Table className="table">
+          <TableHead >
             <TableRow>
 
               <TableCell > Name</TableCell>
@@ -55,12 +55,12 @@ class DisplayCustomers extends Component {
               <TableRow key={row._id}>
                 <TableCell component="th" scope="row">{row.FirstName}</TableCell>
                 <TableCell align="right">{row.LastName}</TableCell>
-                <TableCell align="right">{row.DateOfBirth }</TableCell>
+                <TableCell align="right">{row.DateOfBirth}</TableCell>
                 <TableCell align="right">{row.Country}</TableCell>
                 <TableCell align="right">{row.gender}</TableCell>
                 <TableCell align="right">{row.Notes}</TableCell>
                 <TableCell align="right">{<p>list of Flights</p>}</TableCell>
-            <TableCell align="right">{<Options name={row._id}/>} </TableCell>
+                <TableCell align="right">{<Options name={row._id} type="PassagersOptions"/>} </TableCell>
               </TableRow>
             ))}
           </TableBody>
