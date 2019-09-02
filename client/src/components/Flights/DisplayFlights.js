@@ -6,6 +6,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Options from '../Options'
+import EditFlight from './EditFlight'
 
 
 
@@ -13,7 +14,10 @@ class DisplayFlights extends Component {
   constructor() {
     super();
     this.state = {
-      flightsList: []
+      flightsList: [],
+      editFlightId : "",
+      ifEditFlight : false
+
     };
 
   }
@@ -34,6 +38,7 @@ class DisplayFlights extends Component {
 
     return (
       <div>
+      <EditFlight FlightProps={this.state.ListOfPassagers} ifEdit={this.state.ifEditFlight} />
         <h1>
           List of Flights
                 </h1>
@@ -57,8 +62,8 @@ class DisplayFlights extends Component {
                   <TableCell component="th" scope="row">{row.ArrivalPlace} </TableCell>
                   <TableCell component="th" scope="row">{row.Departure} </TableCell>
                   <TableCell align="right">{row.Arrival}</TableCell>
-                  <TableCell align="right">{row.Cost}</TableCell>
-                  <TableCell align="right">`{row.ListOfPassagers.length / row.NbPassagers}%`</TableCell>
+                  <TableCell align="right">{row.Cost}$</TableCell>
+                  <TableCell align="right">{row.ListOfPassagers.length / row.NbPassagers}%</TableCell>
                   <TableCell align="right">
                     <Options name={row._id} type="Flights" />
                   </TableCell>

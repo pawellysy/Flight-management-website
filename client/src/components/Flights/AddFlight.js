@@ -87,7 +87,6 @@ class AddFlight extends Component {
       })
     }
     else {
-     let cost =  this.window.getElementById("number-of-passagers")
       
     }
 
