@@ -63,8 +63,8 @@ class AddFlight extends Component {
 
   handleSubmit = () => {
 
-    console.log("submit");
-    if(!this.state.NbPassagers === 0){
+    if(!this.state.NbPassagers == 0){
+      console.log("submitting")
 
       const options = {
         method: "POST",

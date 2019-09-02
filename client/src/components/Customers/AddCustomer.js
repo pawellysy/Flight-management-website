@@ -32,7 +32,7 @@ class AddCustomer extends Component {
     handleSubmit = () => {
 
         if (this.state.FirstName !== "" && this.state.LastName !== ""
-            && this.state.Country !== "" && this.state.gender !== "") {
+            && this.state.Country !== "") {
 
             const options = {
                 method: "POST",
