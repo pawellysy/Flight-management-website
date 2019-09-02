@@ -5,7 +5,6 @@ const Options = (id, type) => {
 
 
     const performDelete = () => {
-        console.log(id);
     }
     if (type === 'PassagersOptions') {
 

@@ -65,7 +65,6 @@ class AddCustomer extends Component {
     };
 
     render() {
-        console.log(this.state)
         return (
             <div className="adding-formule">
                 <h1>Add Customer</h1>

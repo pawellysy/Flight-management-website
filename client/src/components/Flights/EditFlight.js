@@ -2,8 +2,7 @@ import React, { useState} from 'react';
 
 const EditFlight = (flightEdit, ifEdit) => {
 
-       const [flight, setFlight] = useState(flightEdit);
-        console.log(flight);
+       
     return (
         <div>
             <h1>

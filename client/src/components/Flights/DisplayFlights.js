@@ -7,6 +7,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Options from '../Options'
 import EditFlight from './EditFlight'
+import { Button } from '@material-ui/core';
 
 
 
@@ -15,15 +16,33 @@ class DisplayFlights extends Component {
     super();
     this.state = {
       flightsList: [],
-      editFlightId : "",
-      ifEditFlight : false
+      editFlight: {},
+      ifEditFlight: false
 
     };
 
   }
+  handleDelete = (id) => {
+    fetch(`/api/DeleteFlight/${id}`, {
+      method: 'DELETE',
+
+    }).then(response => response.json)
+    .then(console.log(JSON.stringify.response))
+    .catch(err => console.error(err))
+    
+    
+  }
+  handleEdit = (flightToEdit) => {
+    this.setState({...this.state, editFlight: flightToEdit, ifEditFlight: true});
+    console.log(this.state)
+
+  }
 
 
-  componentWillMount() {
+
+
+  componentWillMount() 
+  {
     fetch('/api/getFlights')
       .then(data => data.json())
       .then(flightsList => this.setState({ ...this.state.flightsList, flightsList }))
@@ -38,21 +57,23 @@ class DisplayFlights extends Component {
 
     return (
       <div>
-      <EditFlight FlightProps={this.state.ListOfPassagers} ifEdit={this.state.ifEditFlight} />
+        <EditFlight FlightProps={this.state.ListOfPassagers} ifEdit={this.state.ifEditFlight} />
         <h1>
           List of Flights
                 </h1>
         <Paper>
           <Table className="table">
-            <TableHead style={{textAlign:"left"}}>
+            <TableHead style={{ textAlign: "left" }}>
               <TableRow>
                 <TableCell align="right">Departure Place</TableCell>
                 <TableCell align="right">Arrival Place</TableCell>
                 <TableCell  >Departure</TableCell>
                 <TableCell align="right">Arrival</TableCell>
                 <TableCell align="right">Cost</TableCell>
-                <TableCell align="right">percentTaken</TableCell>
-                <TableCell align="right">OPTIONS</TableCell>
+                <TableCell align="right">percent taken</TableCell>
+                <TableCell align="right">Delete</TableCell>
+                <TableCell align="right">Edit</TableCell>
+
               </TableRow>
             </TableHead>
             <TableBody>
@@ -64,9 +85,8 @@ class DisplayFlights extends Component {
                   <TableCell align="right">{row.Arrival}</TableCell>
                   <TableCell align="right">{row.Cost}$</TableCell>
                   <TableCell align="right">{row.ListOfPassagers.length / row.NbPassagers}%</TableCell>
-                  <TableCell align="right">
-                    <Options name={row._id} type="Flights" />
-                  </TableCell>
+                  <TableCell align="right"><Button onClick={() => this.handleDelete(row._id)}> Delete </Button> </TableCell>
+                  <TableCell align="right"><Button onClick={ () => this.handleEdit(row)}> Edit </Button> </TableCell>
 
                 </TableRow>
               ))}
